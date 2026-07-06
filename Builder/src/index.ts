@@ -1,10 +1,12 @@
 import express from 'express'
 import formsRouter from '../routes/forms.js'
+import submissionRoutes from '../routes/forms.js'
 
 const app = express();
 app.use(express.json());
 
 app.use(formsRouter);
+app.use(submissionRoutes);
 
 
 
