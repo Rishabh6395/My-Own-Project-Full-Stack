@@ -32,4 +32,4 @@ function runUserScript(userCode:any, formData:any) {
     }
 }
 
-module.exports = { runUserScript };
+export default runUserScript

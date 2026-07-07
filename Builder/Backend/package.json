@@ -1,11 +1,12 @@
 {
-  "name": "devscale",
+  "name": "builder-backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "tsx src/index.ts",
-    "dev": "tsx watch src/index.ts && tsx watch db/db.ts",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc --noEmit",
     "seed": "tsx scripts/seed.ts"
   },
   "keywords": [],

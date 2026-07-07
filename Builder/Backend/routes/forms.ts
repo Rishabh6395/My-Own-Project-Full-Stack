@@ -55,9 +55,11 @@ router.post('/api/submissions', async(req, res) => {
             processedData = runUserScript(userScript, data);
         } catch (sandboxError) {
             // If the user's JS code crashes, return a clean 400 bad request error
+            const message = sandboxError instanceof Error ? sandboxError.message : String(sandboxError);
+
             return res.status(400).json({ 
                 error: "Your custom form script failed to execute.", 
-                details: sandboxError.message 
+                details: message
             });
         }
 
