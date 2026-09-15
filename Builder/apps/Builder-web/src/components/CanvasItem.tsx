@@ -3,6 +3,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { GripVertical, X } from "lucide-react";
 import type { FormComponent } from "./types";
+import { widthToColSpanClass } from "./constants";
 import ComponentPreview from "./ComponentPreview";
 
 interface CanvasItemProps {
@@ -26,7 +27,8 @@ export default function CanvasItem(props: CanvasItemProps) {
   var isSelected = props.selectedId === component.id;
 
   var containerClass =
-    "group flex items-start gap-3 rounded-md border bg-card px-3 py-3 cursor-pointer transition-colors " +
+    widthToColSpanClass(component.config.width) +
+    " group flex items-start gap-3 rounded-md border bg-card px-3 py-3 cursor-pointer transition-colors " +
     (isSelected
       ? "border-primary ring-1 ring-primary"
       : "border-border hover:border-primary/30");

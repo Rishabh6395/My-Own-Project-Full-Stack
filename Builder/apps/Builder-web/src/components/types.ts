@@ -5,11 +5,14 @@ export type FormComponentType =
   | "date"
   | "checkbox";
 
+export type ComponentWidth = "full" | "half" | "third" | "quarter";
+
 export interface FormComponentConfig {
   label?: string;
   placeholder?: string;
   required?: boolean;
   checked?: boolean;
+  width?: ComponentWidth;
 }
 
 export interface FormComponent {

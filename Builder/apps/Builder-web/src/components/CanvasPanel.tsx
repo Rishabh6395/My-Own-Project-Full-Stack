@@ -1,6 +1,6 @@
 import React from "react";
 import { useDroppable } from "@dnd-kit/core";
-import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
+import { SortableContext, rectSortingStrategy } from "@dnd-kit/sortable";
 import type { FormComponent } from "./types";
 import CanvasItem from "./CanvasItem";
 
@@ -20,17 +20,17 @@ export default function CanvasPanel(props: CanvasPanelProps) {
   }
 
   var wrapperClass =
-    "blueprint-grid flex min-h-[420px] flex-col gap-2.5 rounded-lg border-2 border-dashed p-4 transition-colors " +
+    "blueprint-grid grid min-h-[560px] grid-cols-12 items-start gap-3 rounded-lg border-2 border-dashed p-5 transition-colors " +
     (droppable.isOver ? "border-primary bg-accent/40" : "border-border");
 
   return (
     <div ref={droppable.setNodeRef} className={wrapperClass}>
       {props.components.length === 0 ? (
-        <div className="m-auto text-sm text-muted-foreground">
+        <div className="col-span-12 flex min-h-[500px] items-center justify-center text-sm text-muted-foreground">
           Drag components here to build the form
         </div>
       ) : (
-        <SortableContext items={itemIds} strategy={verticalListSortingStrategy}>
+        <SortableContext items={itemIds} strategy={rectSortingStrategy}>
           {props.components.map(function (component) {
             return (
               <CanvasItem

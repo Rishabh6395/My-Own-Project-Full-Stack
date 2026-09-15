@@ -1,5 +1,6 @@
 import React from "react";
-import type { FormComponent, FormComponentConfig } from "./types";
+import type { FormComponent, FormComponentConfig, ComponentWidth } from "./types";
+import { WIDTH_OPTIONS } from "./constants";
 import { Input } from "./ui/input";
 import { Checkbox } from "./ui/checkbox";
 import { Label } from "./ui/label";
@@ -14,7 +15,7 @@ export default function PropertiesPanel(props: PropertiesPanelProps) {
 
   if (!component) {
     return (
-      <div className="w-64 shrink-0 rounded-lg border border-dashed border-border p-4 text-sm text-muted-foreground">
+      <div className="w-60 shrink-0 rounded-lg border border-dashed border-border p-4 text-sm text-muted-foreground">
         Select a component to edit its properties
       </div>
     );
@@ -31,18 +32,49 @@ export default function PropertiesPanel(props: PropertiesPanelProps) {
     props.onChange(component!.id, newConfig);
   }
 
+  function updateWidth(width: ComponentWidth) {
+    updateConfig("width", width);
+  }
+
   var showPlaceholder = component.type === "textfield" || component.type === "textarea";
   var showRequired =
     component.type === "textfield" || component.type === "textarea" || component.type === "date";
+  var currentWidth = component.config.width || "full";
 
   return (
-    <div className="w-64 shrink-0 rounded-lg border border-border bg-card p-4">
+    <div className="w-60 shrink-0 rounded-lg border border-border bg-card p-4">
       <div className="mb-4 flex items-center justify-between">
         <span className="font-mono text-[11px] text-primary/70">{component.type}</span>
         <span className="text-xs text-muted-foreground">Inspector</span>
       </div>
 
       <div className="space-y-4">
+        <div className="space-y-1.5">
+          <Label className="text-xs">Width</Label>
+          <div className="grid grid-cols-4 gap-1">
+            {WIDTH_OPTIONS.map(function (option) {
+              var isActive = currentWidth === option.value;
+              var buttonClass =
+                "rounded-md border px-1.5 py-1.5 text-xs transition-colors " +
+                (isActive
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border text-muted-foreground hover:border-primary/40");
+              return (
+                <button
+                  key={option.value}
+                  type="button"
+                  className={buttonClass}
+                  onClick={function () {
+                    updateWidth(option.value);
+                  }}
+                >
+                  {option.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
         <div className="space-y-1.5">
           <Label className="text-xs">Label</Label>
           <Input

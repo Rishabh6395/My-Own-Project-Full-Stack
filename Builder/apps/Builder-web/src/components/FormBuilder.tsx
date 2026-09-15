@@ -187,7 +187,7 @@ export default function FormBuilder() {
 
   return (
     <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-      <div className="mx-auto max-w-6xl p-6">
+      <div className="mx-auto max-w-[1400px] p-6">
         <div className="mb-5 space-y-2">
           <h1 className="text-xl font-semibold text-foreground">Form Builder</h1>
           <p className="text-sm text-muted-foreground">
@@ -204,7 +204,7 @@ export default function FormBuilder() {
         </div>
 
         <div className="flex gap-5">
-          <div className="flex w-44 shrink-0 flex-col gap-2">
+          <div className="flex w-40 shrink-0 flex-col gap-2">
             <div className="mb-1 text-sm font-medium text-foreground">Components</div>
             {COMPONENT_TYPES.map(function (item) {
               return (
