@@ -1,0 +1,138 @@
+.builder-root {
+  display: flex;
+  gap: 16px;
+  font-family: sans-serif;
+}
+
+.palette {
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.palette-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.palette-item {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: grab;
+  background: #fafafa;
+  user-select: none;
+}
+
+.canvas-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.canvas-panel {
+  min-height: 300px;
+  border: 2px dashed #ccc;
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.canvas-panel-over {
+  border-color: #6a5acd;
+  background: #f5f4ff;
+}
+.canvas-empty {
+  color: #999;
+  text-align: center;
+  margin: auto;
+}
+.canvas-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 10px;
+  background: #fff;
+  cursor: pointer;
+}
+.canvas-item-selected {
+  border-color: #6a5acd;
+  box-shadow: 0 0 0 1px #6a5acd;
+}
+.canvas-item-drag {
+  cursor: grab;
+  color: #999;
+}
+.canvas-item-body {
+  flex: 1;
+}
+.canvas-item-type {
+  font-size: 11px;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.canvas-item-remove {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #999;
+}
+
+.submit-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.submit-button {
+  padding: 8px 18px;
+  background: #6a5acd;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.status-error {
+  color: #c0392b;
+}
+.status-success {
+  color: #27ae60;
+}
+.status-loading {
+  color: #888;
+}
+
+.properties-panel {
+  width: 220px;
+  border-left: 1px solid #eee;
+  padding-left: 16px;
+}
+.properties-empty {
+  width: 220px;
+  color: #999;
+  font-size: 13px;
+}
+.properties-title {
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+.properties-field {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.properties-field input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 4px 6px;
+}
+.properties-checkbox {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}

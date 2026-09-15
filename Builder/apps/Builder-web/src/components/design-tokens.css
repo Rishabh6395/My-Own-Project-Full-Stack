@@ -1,0 +1,38 @@
+/*
+  Merge these into your existing globals.css :root block (alongside
+  the ones shadcn's init already generated). Only the values below
+  are new/overridden for the form builder's palette — keep whatever
+  else shadcn scaffolded (radius, other component tokens, etc).
+*/
+
+:root {
+  --background: 40 20% 98%;          /* warm paper, not stark white */
+  --foreground: 30 10% 12%;          /* warm near-black ink */
+
+  --card: 0 0% 100%;
+  --card-foreground: 30 10% 12%;
+
+  --border: 30 12% 88%;
+  --muted: 40 15% 95%;
+  --muted-foreground: 30 8% 46%;
+
+  --primary: 217 60% 30%;            /* cobalt blueprint blue */
+  --primary-foreground: 0 0% 100%;
+
+  --accent: 217 60% 96%;             /* faint blue wash for hover/selected bg */
+  --accent-foreground: 217 60% 30%;
+
+  --destructive: 6 70% 45%;
+  --destructive-foreground: 0 0% 100%;
+
+  --ring: 217 60% 30%;
+  --radius: 0.5rem;
+}
+
+/* Blueprint grid used as the canvas drop-panel background */
+.blueprint-grid {
+  background-image:
+    linear-gradient(hsl(var(--border) / 0.6) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.6) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
